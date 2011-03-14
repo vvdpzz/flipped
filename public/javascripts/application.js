@@ -42,7 +42,9 @@ function ajax_form(form_id, submit_button, loading_text, complete_text){
 	}
 	$.ajax(hash);
 }
-
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
 $(document).ready(function(){
 	$("#user_new").validate();
 	$('#new_tweet').submit(function() {
@@ -52,5 +54,13 @@ $(document).ready(function(){
 	$('#new_comment').submit(function() {
 		ajax_form($(this), 'comment', 'Sending', '回复');
 		return false;
+	});
+	$(".new_message").keypress(function(event) {
+		if (event.keyCode == '13') {
+			event.preventDefault();
+				var data = $(this).serialize();
+				$(this)[0].reset();
+				$.post("/messages/chat", data);
+		}
 	});
 });

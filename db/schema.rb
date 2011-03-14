@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313144014) do
+ActiveRecord::Schema.define(:version => 20110314023424) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20110313144014) do
   end
 
   add_index "comments", ["user_id", "tweet_id"], :name => "index_comments_on_user_id_and_tweet_id"
+
+  create_table "conversations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "participant_id"
+    t.string   "extra_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations", ["user_id", "participant_id", "extra_id"], :name => "index_conversations_on_user_id_and_participant_id_and_extra_id"
 
   create_table "fruits", :force => true do |t|
     t.string "name"
@@ -35,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20110313144014) do
   end
 
   add_index "locations", ["school_id"], :name => "index_locations_on_school_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "provinces", :force => true do |t|
     t.string "name"
@@ -58,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20110313144014) do
     t.integer  "location_id"
     t.boolean  "gender",         :default => true
     t.string   "hair",                             :null => false
-    t.text     "flirt",                            :null => false
+    t.text     "body",                             :null => false
     t.integer  "comments_count"
     t.datetime "created_at"
     t.datetime "updated_at"

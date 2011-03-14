@@ -43,7 +43,7 @@ input[type="text"], input[type="password"]{
 #location{
 	width:180px;
 }
-#tweet_flirt{
+#tweet_body{
 	width:505px;
 }
 #tweet_submit{
@@ -103,7 +103,7 @@ textarea,input[type="text"], input[type="password"],#create_tweet{
 #tweets{
 	background:white;
 }
-.tweet{
+.tweet, .conversation{
 	padding:14px 20px 15px;
 	border-bottom: 1px solid #E5E5E5;
 }
@@ -123,7 +123,7 @@ textarea,input[type="text"], input[type="password"],#create_tweet{
 	.timestamp{
 		color:#ABABAB;
 	}
-.comment{
+.comment, .message{
 	background: #F1F6F9;
 	margin: 5px 0px;
 	padding: 5px 10px;
@@ -131,3 +131,21 @@ textarea,input[type="text"], input[type="password"],#create_tweet{
 	.username{
 		color:#b60;
 	}
+.me{
+	background-color: #F3EEDB;
+}
+.you{
+	background-color: #F1F6F9;
+}
+#new_message textarea{
+	width:100%;
+}
+#conversations{
+	background:white;
+}
+.topic{
+	font-size:14px;
+}
+.message_box{
+	width:100%;
+}

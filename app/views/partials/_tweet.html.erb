@@ -1,6 +1,6 @@
 <%= div_for tweet do %>
 	<div class="tweet_tittle"><%= "@#{tweet.location.name} - #{tweet.gender ? '女生' : '男生'} - #{tweet.hair}" %></div>
-	<div class="flirt"><%= tweet.flirt %></div>
+	<div class="flirt"><%= tweet.body %></div>
 	<div class="opt"><%= opt4t tweet %></div>
 	<div class="comments">
 		<%= render :partial => "partials/comment", :collection => tweet.comments if tweet.comments_count %>

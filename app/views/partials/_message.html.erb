@@ -1,0 +1,4 @@
+<%= div_for(message, :class => message.user_id == current_user.id ? 'me' : 'you') do %>
+	<span class="message-body"><%= message.body %></span>
+	<span class="opt"><%= timestamp message.created_at %></span>
+<% end %>

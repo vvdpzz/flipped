@@ -1,0 +1,8 @@
+<%= div_for conversation do %>
+	<div class="topic"><%= conversation.body %></div>
+	<div class="opt"><%= timestamp conversation.created_at %></div>
+	<div class="messages">
+		<%= render :partial => 'partials/message', :collection => conversation.messages %>
+	</div>
+	<%= render "messages/form", :cid => conversation.id %>
+<% end %>

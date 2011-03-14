@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :tweets
   has_many :comments
+  has_many :conversations
+  has_many :joined_conversations, :class_name => "Conversation", :foreign_key => "participant_id"
+  has_many :messages
 end

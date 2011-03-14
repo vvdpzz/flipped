@@ -6,7 +6,7 @@ class CreateTweets < ActiveRecord::Migration
       t.references :location
       t.boolean :gender, :default => true
       t.string :hair, :null => false
-      t.text :flirt, :null => false
+      t.text :body, :null => false
       t.integer :comments_count
 
       t.timestamps

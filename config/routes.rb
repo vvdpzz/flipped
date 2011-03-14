@@ -5,7 +5,15 @@ Flipped::Application.routes.draw do
   end
   resources :tweets do
     resources :comments
+    resources :messages
   end
+  resources :messages
+  
+  resources :comments do
+    resources :messages
+  end
+  
+  post "messages/chat"
   
   match '/:id' => "schools#show", :as => :school
 

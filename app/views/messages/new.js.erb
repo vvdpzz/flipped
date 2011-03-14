@@ -1,0 +1,19 @@
+$('#new_message').remove();
+$('#container').append("<%= escape_javascript(render 'messages/message', :pid => @pid)%>");
+$('#new_message').hide();
+$('#message_submit').remove();
+$('#new_message').attr("title", "发送私信");
+$('#new_message').dialog({
+	modal: true,
+	draggable: false,
+	buttons: {
+		发送: function(){
+			if ($("#message_body").val() != ""){
+				$(this).submit();
+			}
+		},
+		取消: function() {
+			$( this ).dialog( "close" );
+		}
+	}
+});

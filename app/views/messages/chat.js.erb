@@ -1,0 +1,2 @@
+$("#conversation_<%=@conversation.id%> .messages").append("<%= escape_javascript(render 'partials/message', :message => @message)%>");
+$("#conversation_<%=@conversation.id%> .new_message")[0].reset();
