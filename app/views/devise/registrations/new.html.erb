@@ -1,0 +1,18 @@
+<div id="content" class="yui3-u-1">
+	<div id="sign" class="box">
+		<%= image_tag("/images/register.png") %>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
+		  <div class="field">
+		  	<%= f.text_field :email, :class => 'required email' %>
+		  </div>
+		  <div class="field">
+		  	<%= f.password_field :password, :class => 'required' %>
+		  </div>
+		  <div class="actions">
+		  	<%= f.submit "就快成功了，注册！" %>
+			已经注册？立刻 <%= link_to "登录", new_session_path(resource_name) %>
+		  </div>
+		<% end %>
+	</div>
+</div>

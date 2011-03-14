@@ -1,0 +1,3 @@
+$('#new_comment').remove();
+$("#<%= @tweet.class.name.downcase %>_<%= @tweet.id %>").append("<%= escape_javascript(render 'comments/comment', :tweet => @tweet)%>");
+$("#<%= @tweet.class.name.downcase %>_<%= @tweet.id %> #comment_body").focus();

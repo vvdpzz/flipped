@@ -1,0 +1,17 @@
+<%= form_for(School.new) do |f| %>
+	<div class="field">
+		<div class="field_label">学校全名<span class="label_eg">e.g. 浙江大学</span></div>
+		<%= f.text_field :name, :class => 'required' %>
+	</div>
+	<div class="field">
+		<div class="field_label">英文缩写<span class="label_eg">e.g. zju</span></div>
+		<%= f.text_field :abbr, :class => 'required' %>
+	</div>
+	<div class="field">
+		<div class="field_label">所在省份</div>
+		<%= f.collection_select(:province_id, Province.all, :id, :name, :prompt => '请选择学校所在省级行政区') %>
+	</div>
+	<div class="actions">
+		<%= f.submit "创建学校" %>
+	</div>
+<% end %>

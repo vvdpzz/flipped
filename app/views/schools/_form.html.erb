@@ -1,0 +1,23 @@
+<%= form_for(@school) do |f| %>
+	<% if @school.errors.any? %>
+	  <div id="error_explanation">
+	    <h2>创建学校的时候发生了 <%= @school.errors.count %> 个错误：</h2>
+	    <ul>
+	    <% @school.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	<div class="field">
+		<div class="field_label">学校全名<span class="label_eg">e.g. 浙江大学</span></div>
+		<%= f.text_field :name, :class => 'required' %>
+	</div>
+	<div class="field">
+		<div class="field_label">英文缩写<span class="label_eg">e.g. zju</span></div>
+		<%= f.text_field :abbr, :class => 'required' %>
+	</div>
+	<div class="actions">
+		<%= f.submit "创建学校" %>
+	</div>
+<% end %>

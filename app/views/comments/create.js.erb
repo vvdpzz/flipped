@@ -1,0 +1,5 @@
+$("#<%= @tweet.class.name.downcase %>_<%= @tweet.id %> #new_comment")[0].reset();
+$("#<%= @tweet.class.name.downcase %>_<%= @tweet.id %> #new_comment").remove();
+$("#<%= @tweet.class.name.downcase %>_<%= @tweet.id %> .comments").append(
+	"<%= escape_javascript(render 'partials/comment', :comment => @comment)%>"
+);

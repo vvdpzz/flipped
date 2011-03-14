@@ -1,0 +1,8 @@
+<%= form_for([tweet, Comment.new], :remote => true) do |f| %>
+	<div class="field">
+		<%= f.text_area :body, :rows => 3, :class => 'required' %>
+	</div>
+	<div class"actions">
+		<%= f.submit '回复' %>
+	</div>
+<% end %>
