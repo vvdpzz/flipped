@@ -28,7 +28,7 @@ Flipped::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'xindongle.com',
-    :user_name            => 'vvdpzz',
+    :user_name            => 'vvdpzz@xindongle.com',
     :password             => 'jijizhudong',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
