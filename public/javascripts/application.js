@@ -97,7 +97,13 @@ function sendFeed(){
 			"rruid":"rruid"
 		},
 		"body_general": "here body_general",
-		"callback": function(ok){alert("Public OK!")},
+		"callback": function(flag){
+			if (flag){
+				alert("Public OK!")
+			}else{
+				alert("Public Failed!")
+			}
+		},
 		"user_message_prompt": "here user_message_prompt",
 		"user_message": "here user_message"
 	};
