@@ -1,7 +1,7 @@
 <%= div_for tweet do %>
 	<div class="tweet_tittle"><%= "@#{tweet.location.name} - #{tweet.gender ? '女生' : '男生'} - #{tweet.hair}" %></div>
 	<div class="flirt"><%= tweet.body %></div>
-	<div class="opt"><%= opt4t tweet %> <a href="#" onclick="XN.Connect.requireSession(sendFeed);return false;">分享到人人</a></div>
+	<div class="opt"><%= opt4t tweet %> <a href="#" onclick="XN.Connect.requireSession(sendFeed());return false;">分享到人人</a></div>
 	<div class="comments">
 		<%= render :partial => "partials/comment", :collection => tweet.comments if tweet.comments_count %>
 	</div>
@@ -16,7 +16,6 @@
 					"action":"<%= tweet.school.abbr %>",
 					"rruid":"<%= tweet.id %>"
 				}
-				"body_general": "我对你有一点“动心”"
 			};
 			XN.Connect.showFeedDialog(feedSettings);
 		}

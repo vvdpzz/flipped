@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       if current_user.id == @tweet.user.id
         name = "楼主"
       else
-        name = Fruit.find(:all, :order => 'random()', :limit => 1).first.name
+        name = Fruit.find(:all, :order => 'rand()', :limit => 1).first.name
       end
     end
       
