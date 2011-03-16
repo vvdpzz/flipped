@@ -83,6 +83,19 @@ function setUpOnFocus(obj, defaultText) {
     });
 
 }
+function sendFeed(data){
+	var feedSettings = {
+		"template_bundle_id": 1,
+		"template_data":{
+			"title": data.school + data.name + " 童鞋的一个心动告白",
+			"feedtype":"分享了",
+			"content": data.body,
+			"action": data.abbr,
+			"rruid": data.id
+		}
+	};
+	XN.Connect.showFeedDialog(feedSettings);
+}
 $(document).ready(function(){
 	$("#user_new").validate();
 	$('#new_tweet').submit(function() {
@@ -103,4 +116,10 @@ $(document).ready(function(){
 	});
 	setUpOnFocus($('#search_school'), "搜索你的学校...");
 	$('.submit_message').remove();
+	$('.share_renren').click(function(){
+		$.get('tweets/api/'+this.id, function(data) {
+		  XN.Connect.requireSession(sendFeed(data));
+		});
+		return false;
+	});
 });

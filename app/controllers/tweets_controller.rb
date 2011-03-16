@@ -24,6 +24,11 @@ class TweetsController < ApplicationController
     end
   end
   
+  def api_show
+    tweet = Tweet.find params[:id]
+    render :json => { :id => tweet.id, :name => tweet.name, :body => tweet.body, :school => tweet.school.name, :abbr => tweet.school.abbr}.to_json
+  end
+  
   protected
     def find_school
       @school = School.find_by_abbr(params[:school_id])

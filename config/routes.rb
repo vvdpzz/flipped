@@ -19,6 +19,7 @@ Flipped::Application.routes.draw do
   
   match '/:id' => "schools#show", :as => :school
   match '/:school_id/:id' => "tweets#show", :as => :tweet
+  match '/tweets/api/:id' => "tweets#api_show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,23 +1,8 @@
 <%= div_for tweet do %>
 	<div class="tweet_tittle"><%= "@#{tweet.location.name} - #{tweet.gender ? '女生' : '男生'} - #{tweet.hair}" %></div>
 	<div class="flirt"><%= tweet.body %></div>
-	<div class="opt"><%= opt4t tweet %> <a href="#" onclick="XN.Connect.requireSession(sendFeed());return false;">分享到人人</a></div>
+	<div class="opt"><%= opt4t tweet %> <a class="share_renren" id="<%= tweet.id %>" >分享到人人</a></div>
 	<div class="comments">
 		<%= render :partial => "partials/comment", :collection => tweet.comments if tweet.comments_count %>
 	</div>
-	<script>
-		function sendFeed(){
-			var feedSettings = {
-				"template_bundle_id": 1,
-				"template_data":{
-					"title":"<%= tweet.school.name %> <%= tweet.name %>童鞋的一个心动告白",
-					"feedtype":"分享了",
-					"content":"<%= truncate(tweet.body, :length => 120) %>",
-					"action":"<%= tweet.school.abbr %>",
-					"rruid":"<%= tweet.id %>"
-				}
-			};
-			XN.Connect.showFeedDialog(feedSettings);
-		}
-	</script>
 <% end %>
