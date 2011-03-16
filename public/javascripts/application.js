@@ -87,7 +87,7 @@ function sendFeed(data){
 	var feedSettings = {
 		"template_bundle_id": 1,
 		"template_data":{
-			"title": data.school + data.name + " 童鞋的一个心动告白",
+			"title": data.school + " " + data.name + " 童鞋的一个心动告白",
 			"feedtype":"分享了",
 			"content": data.body,
 			"action": data.abbr,
