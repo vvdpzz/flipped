@@ -83,6 +83,26 @@ function setUpOnFocus(obj, defaultText) {
     });
 
 }
+function sendFeed(){
+	var feedSettings = {
+		"template_bundle_id": 1,
+		"template_data":{
+			"images":[{
+				"src":"",
+				"href":""}],
+			"title":"Title",
+			"feedtype":"feedtype",
+			"content":"content",
+			"action":"action",
+			"rruid":"rruid"
+		},
+		"body_general": "here body_general",
+		"callback": function(ok){alert("Public OK!")},
+		"user_message_prompt": "here user_message_prompt",
+		"user_message": "here user_message"
+	};
+	XN.Connect.showFeedDialog(feedSettings);
+}
 $(document).ready(function(){
 	$("#user_new").validate();
 	$('#new_tweet').submit(function() {
