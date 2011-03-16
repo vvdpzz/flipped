@@ -5,4 +5,19 @@
 	<div class="comments">
 		<%= render :partial => "partials/comment", :collection => tweet.comments if tweet.comments_count %>
 	</div>
+	<script>
+		function sendFeed(){
+			var feedSettings = {
+				"template_bundle_id": 1,
+				"template_data":{
+					"title":"<%= tweet.school.name %> 的一个告白",
+					"feedtype":"推荐",
+					"content":"<%= truncate(tweet.body, :length => 120 %>",
+					"action":"<%= tweet.school.abbr %>",
+					"rruid":"<%= tweet.id %>"
+				},
+			};
+			XN.Connect.showFeedDialog(feedSettings);
+		}
+	</script>
 <% end %>
