@@ -4,6 +4,7 @@ class CreateTweets < ActiveRecord::Migration
       t.references :user
       t.references :school
       t.references :location
+      t.string :name, :null => false
       t.boolean :gender, :default => true
       t.string :hair, :null => false
       t.text :body, :null => false

@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20110314023424) do
     t.integer  "user_id"
     t.integer  "school_id"
     t.integer  "location_id"
+    t.string   "name",                             :null => false
     t.boolean  "gender",         :default => true
     t.string   "hair",                             :null => false
     t.text     "body",                             :null => false

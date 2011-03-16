@@ -10,12 +10,13 @@
 			var feedSettings = {
 				"template_bundle_id": 1,
 				"template_data":{
-					"title":"<%= tweet.school.name %> 的一个告白",
-					"feedtype":"推荐",
+					"title":"<%= tweet.school.name %> <%= tweet.name %>童鞋的一个心动告白",
+					"feedtype":"分享了",
 					"content":"<%= truncate(tweet.body, :length => 120) %>",
 					"action":"<%= tweet.school.abbr %>",
 					"rruid":"<%= tweet.id %>"
 				}
+				"body_general": "我对你有一点“动心”"
 			};
 			XN.Connect.showFeedDialog(feedSettings);
 		}

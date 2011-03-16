@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
     @tweet = @school.tweets.build(params[:tweet])
     @tweet.location_id = location.id
     @tweet.user_id = current_user.id
+    @tweet.name = Fruit.find(:all, :order => 'random()', :limit => 1).first.name
     respond_to do |format|
       if @tweet.save
         format.js

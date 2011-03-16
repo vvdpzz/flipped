@@ -7,6 +7,5 @@ class Tweet < ActiveRecord::Base
   
   default_scope :order => 'created_at DESC'
   
-  validates_presence_of :hair, :on => :create, :message => "can't be blank"
-  validates_presence_of :body, :on => :create, :message => "can't be blank"
+  validates_presence_of [:name, :hair, :body]
 end

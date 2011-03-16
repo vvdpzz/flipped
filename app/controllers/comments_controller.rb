@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
     if history.present?
       name = history.name
     else
-      name = Fruit.find(:all, :order => 'random()', :limit => 1).first.name
+      if current_user.id == @tweet.user.id
+        name = "楼主"
+      else
+        name = Fruit.find(:all, :order => 'random()', :limit => 1).first.name
+      end
     end
       
     @comment = current_user.comments.build(params[:comment])
