@@ -2,6 +2,8 @@ Flipped::Application.routes.draw do
   devise_for :users
   resources :schools do
     resources :tweets
+    get :autocomplete_school_name, :on => :collection
+    get :autocomplete_location_name, :on => :member
   end
   resources :tweets do
     resources :comments
@@ -16,6 +18,7 @@ Flipped::Application.routes.draw do
   post "messages/chat"
   
   match '/:id' => "schools#show", :as => :school
+  match '/:school_id/:id' => "tweets#show", :as => :tweet
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

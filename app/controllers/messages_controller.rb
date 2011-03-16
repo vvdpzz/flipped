@@ -21,7 +21,21 @@ class MessagesController < ApplicationController
     else
       conversation = conversation.first
     end
-    message = Message.create(:user_id => current_user.id, :conversation_id => conversation.id, :body => params[:message][:body])
+    message = Message.new(:user_id => current_user.id, :conversation_id => conversation.id, :body => params[:message][:body])
+    if @instance.respond_to?("school")
+      url = @instance.school
+    else
+      url = @instance.tweet.school
+    end
+    respond_to do |format|
+      if message.save
+        format.js
+        format.html {redirect_to url}
+      else
+        format.js
+        format.html {render :new}
+      end
+    end
   end
   
   def index
@@ -30,7 +44,16 @@ class MessagesController < ApplicationController
   
   def chat
     @conversation = Conversation.find(params[:cid])
-    @message = Message.create(:user_id => current_user.id, :conversation_id => @conversation.id, :body => params[:body])
+    @message = Message.new(:user_id => current_user.id, :conversation_id => @conversation.id, :body => params[:body])
+    respond_to do |format|
+      if @message.save
+        format.js
+        format.html {redirect_to messages_path}
+      else
+        format.js
+        format.html {redirect_to messages_path}
+      end
+    end
   end
   
   protected

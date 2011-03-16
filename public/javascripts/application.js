@@ -45,6 +45,44 @@ function ajax_form(form_id, submit_button, loading_text, complete_text){
 String.prototype.trim = function() {
 	return this.replace(/^\s+|\s+$/g,"");
 }
+function setUpOnFocus(obj, defaultText) {
+    if (defaultText)
+        obj.data("defaultText", defaultText);
+    if (obj.data("onfocusSetup")) {
+        if (obj.data("empty") || obj.val() == "") {
+            obj.val(obj.data("defaultText"));
+            obj.data("empty", true);
+            if (!obj.hasClass("default-text"))
+                obj.addClass("default-text");
+        }
+        return;
+    }
+    obj.data("onfocusSetup", true);
+    var isEmpty = (obj.val() == "" || obj.val() == obj.data("defaultText"));
+    if (isEmpty) {
+    obj.val(obj.data("defaultText"));
+    obj.data("empty", true);
+        obj.addClass("default-text");
+    }
+
+    obj.focus(function () {
+    if (obj.val() == obj.data("defaultText")) {
+        obj.val("");
+            obj.removeClass("default-text");
+    }
+    obj.data("empty", false);
+    })
+
+    obj.blur(function () {
+    var isEmpty = (obj.val() == "" || obj.val() == obj.data("defaultText"));
+    if (isEmpty) {
+        obj.val(obj.data("defaultText"));
+        obj.data("empty", true);
+            obj.addClass("default-text");
+    }
+    });
+
+}
 $(document).ready(function(){
 	$("#user_new").validate();
 	$('#new_tweet').submit(function() {
@@ -63,4 +101,6 @@ $(document).ready(function(){
 				$.post("/messages/chat", data);
 		}
 	});
+	setUpOnFocus($('#search_school'), "搜索你的学校...");
+	$('.submit_message').remove();
 });

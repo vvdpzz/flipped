@@ -1,6 +1,9 @@
 class SchoolsController < ApplicationController
   before_filter :find_school, :only => [:show]
   
+  autocomplete :school, :name
+  autocomplete :location, :name, :relation_name => "locations"
+  
   def index
     
   end

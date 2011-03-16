@@ -20,8 +20,10 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js
         format.json {head :ok}
+        format.html {redirect_to @tweet.school}
       else
         format.json {render :json => @comment.errors, :status => :unprocessable_entity}
+        format.html {render :new}
       end
     end
   end

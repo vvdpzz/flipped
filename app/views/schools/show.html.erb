@@ -6,3 +6,24 @@
 </div>
 <div id="sidebar" class="yui3-u-7-24">
 </div>
+<script type="text/javascript">
+function sendFeed(){
+	var feedSettings = {
+		"template_bundle_id": 1,
+		"template_data":{
+			"images":[{
+				"src":"http://fmn042.xnimg.cn/fmn042/20090806/0905/p_large_oQSJ_2633m016062.jpg",
+				"href":"http://dev.renren.com/developers/portal.do"}],
+			"title":"[token:title]",
+			"feedtype":"[token:feedtype]",
+			"content":"[token content:支持校内，情系人人！]",
+			"action":"[token:action]",
+			"rruid":"[token:rruid]"},
+			"body_general": "here body_general",
+			"callback": function(ok){console.log('here in feed callback!!');},
+			"user_message_prompt": "here user_message_prompt",
+			"user_message": "here user_message"
+	};
+	XN.Connect.showFeedDialog(feedSettings);
+}
+</script>

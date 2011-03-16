@@ -3,7 +3,7 @@
 <head>
   <title>Flipped</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' %>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js' %>
   <%= javascript_include_tag 'http://ajax.microsoft.com/ajax/jQuery.Validate/1.7/jQuery.Validate.min.js' %>
   <%= javascript_include_tag :defaults %>
@@ -18,5 +18,12 @@
 			<%= yield %>
 		</div>
 	</div>
+	<script type="text/javascript" src="http://static.connect.renren.com/js/v1.0/FeatureLoader.jsp"></script>
+	<script type="text/javascript">
+	XN_RequireFeatures(["Connect"], function()
+	{
+		XN.Main.init("562237c29ca145109ea036aeefa68687", "http://xindongle.com/xd_receiver.html");
+	});
+	</script>
 </body>
 </html>

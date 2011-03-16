@@ -1,0 +1,15 @@
+<div id="content" class="yui3-u-17-24">
+	<div id="tweets">
+		<%= div_for @tweet do %>
+			<div class="tweet_tittle"><%= "@#{@tweet.location.name} - #{@tweet.gender ? '女生' : '男生'} - #{@tweet.hair}" %></div>
+			<div class="flirt"><%= @tweet.body %></div>
+			<div class="opt"><%= opt4t @tweet %></div>
+			<div class="comments">
+				<%= render :partial => "partials/comment", :collection => @tweet.comments if @tweet.comments_count %>
+			</div>
+			<%= render 'comments/comment', :tweet => @tweet %>
+		<% end %>
+	</div>
+</div>
+<div id="sidebar" class="yui3-u-7-24">
+</div>

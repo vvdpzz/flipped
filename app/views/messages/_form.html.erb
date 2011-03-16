@@ -1,4 +1,5 @@
 <%=form_tag({:controller => "messages", :action => "chat"}, :class => "new_message", :remote => true) do %>
 	<%= hidden_field_tag :cid, cid %>
 	<%= text_area_tag :body, {}, :class => "message_box" %>
+	<%= submit_tag '发送', :class => 'submit_message' %>
 <% end %>

@@ -149,3 +149,6 @@ textarea,input[type="text"], input[type="password"],#create_tweet{
 .message_box{
 	width:100%;
 }
+.default-text{
+	color:#B4B4B4;
+}

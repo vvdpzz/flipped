@@ -1,6 +1,6 @@
 <div id="create_tweet">
 	<%= form_for([@school, tweet], :remote => true) do |f| %>
-		<div class="field">我在看一个<%= f.radio_button :gender, true, :checked => true %>女生<%= f.radio_button :gender, false %>男生，发型是<%= f.text_field :hair, :class => 'required' %> 地点在<%= text_field_tag :location, {}, :class => 'required' %></div>
+		<div class="field">我在看一个<%= f.radio_button :gender, true, :checked => true %>女生<%= f.radio_button :gender, false %>男生，发型是<%= f.text_field :hair, :class => 'required' %> 地点在<%= autocomplete_field_tag :location, '', autocomplete_location_name_school_url, :class => 'required' %></div>
 		<div class="actions">
 			<%= f.text_area :body, :rows => 4, :class => 'required' %><%= f.submit '喵～ 喵～' %>
 		</div>
